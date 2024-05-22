@@ -1,0 +1,27 @@
+{% extends "users/layout.html" %} {% block body %} {% if message %}
+<h2 class="text-center">{{ message }}</h2>
+{% endif %}
+<div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
+  <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <input
+      class="form-control mb-2"
+      type="text"
+      name="username"
+      placeholder="Username"
+    />
+    <input
+      class="form-control"
+      type="password"
+      name="password"
+      placeholder="Password"
+    />
+    <input
+      type="submit"
+      value="Login"
+      class="form-control btn btn-primary mt-3"
+    />
+  </form>
+</div>
+
+{% endblock %}
